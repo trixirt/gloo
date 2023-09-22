@@ -138,9 +138,9 @@ if(GLOO_INSTALL)
     install(FILES
       ${PROJECT_BINARY_DIR}/cmake/GlooConfig.cmake
       ${PROJECT_BINARY_DIR}/cmake/GlooConfigVersion.cmake
-      DESTINATION share/cmake/Gloo
+      DESTINATION lib64/cmake/Gloo
       COMPONENT dev)
-    install(EXPORT GlooTargets DESTINATION share/cmake/Gloo
+    install(EXPORT GlooTargets DESTINATION lib64/cmake/Gloo
       FILE GlooTargets.cmake
       COMPONENT dev)
   else()

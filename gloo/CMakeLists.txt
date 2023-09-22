@@ -176,12 +176,16 @@ if(USE_ROCM)
   target_include_directories(gloo_hip INTERFACE $<INSTALL_INTERFACE:include>)
 endif()
 
+# YY.M.D of last upstream commit to main
+set(gloo_VERSION 23.8.24)
+set_target_properties(gloo PROPERTIES VERSION ${gloo_VERSION} SOVERSION ${gloo_VERSION})
+
 # Install if necessary.
 # If the Gloo build is included from another project's build, it may
 # want to statically link with Gloo and not install any artifacts.
 if(GLOO_INSTALL)
   install(TARGETS gloo EXPORT GlooTargets
-      DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+      DESTINATION ${CMAKE_INSTALL_PREFIX}/lib64)
   if(USE_CUDA)
     install(TARGETS gloo_cuda EXPORT GlooTargets
         DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
